@@ -1,0 +1,108 @@
+                                                     Bike Rental Management System
+Introduction
+ 
+  In an era where sustainable transportation solutions are gaining increasing importance, our Bike Rental Management System emerges as a practical and eco-friendly alternative for urban mobility. This project aims to provide a comprehensive and efficient solution for managing bike rentals, catering to both customers seeking a convenient mode of transport and businesses looking to streamline their bike rental operations.
+
+Project Overview
+
+Purpose: The Bike Rental Management System serves as a centralized platform for bike rental businesses to handle various aspects of their operations. From customer management to bike inventory tracking and rental transactions, the system is designed to enhance the overall efficiency and user experience of bike rental services.
+
+Key Features:
+
+•	Customer Management: Efficiently manage customer information, including personal details and rental history.
+
+•	Bike Inventory: Keep track of available bikes, their specifications, and maintenance records.
+
+•	Rental Transactions: Facilitate seamless rental transactions, including booking, check-in, and check-out processes.
+
+•	Location Management: Monitor and manage multiple rental locations, optimizing bike distribution and availability.
+
+Target Audience:
+
+•	Bike Rental Businesses: Enhance operational efficiency, reduce paperwork, and provide a better user experience for customers.
+
+•	Customers: Enjoy a hassle-free and user-friendly platform for renting bikes, with transparent transaction processes.
+
+Technology Stack
+
+The Bike Rental Management System is built using industry-standard technologies to ensure scalability, security, and ease of maintenance. The system relies on a relational database for data storage and retrieval, a backend server for business logic implementation, and a user-friendly frontend interface for customer interactions.
+
+Key Technologies:
+•	Database: MySQL for robust and structured data storage.
+
+•	Backend: Utilizes a server-side scripting language (e.g., Python, Node.js) for business logic implementation.
+
+•	Frontend: HTML, CSS, and JavaScript for creating an intuitive user interface.
+
+How to Use This Documentation
+
+This documentation is organized into several sections, providing detailed insights into the database structure, SQL statements for table creation and data manipulation, and CRUD (Create, Read, Update, Delete) operations. Follow the documentation to understand the architecture, implement the database schema, and perform various operations within the Bike Rental Management System.
+
+DESCRIPTION OF PROJECT IN DETAILS
+
+Now, let's design a simple database for a bike rental business. We will create four tables: Customers, Bikes, Rentals, and Locations. Each table will be in 3rd Normal Form (3NF).
+1. Customers Table
+   
+•	Fields:
+
+     •	customer_id (Primary Key)
+     •	name
+     •	email
+     •	phone
+
+•	Functional Dependencies (FDs):
+
+    •	customer_id -> name, email, phone
+    •	email -> customer_id
+    •	phone -> customer_id
+
+2. Bikes Table
+   
+•	Fields:
+
+      •	bike_id (Primary Key)
+      •	brand
+      •	model
+      •	type
+   
+•	Functional Dependencies (FDs):
+
+    •	bike_id -> brand, model, type
+  
+3. Rentals Table
+   
+•	Fields:
+
+     •	rental_id (Primary Key)
+     •	customer_id (Foreign Key references Customers)
+     •	bike_id (Foreign Key references Bikes)
+     •	rental_date
+     •	return_date
+  
+•	Functional Dependencies (FDs):
+
+        •	rental_id -> customer_id, bike_id, rental_date, return_date
+        •	customer_id, bike_id -> rental_id
+  
+•	Foreign Key Constraints:
+
+     •	customer_id references Customers(customer_id)
+     •	bike_id references Bikes(bike_id)
+   
+•	Triggers/Policy:
+•	Enforce that a bike cannot be rented out if it is already rented (check return_date for NULL).
+
+4. Locations Table
+   
+•	Fields:
+
+     •	location_id (Primary Key)
+     •	name
+     •	address
+     •	capacity
+   
+•	Functional Dependencies (FDs):
+
+     •	location_id -> name, address, capacity
+
+
